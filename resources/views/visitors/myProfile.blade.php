@@ -7,8 +7,8 @@
 
 	<div class="container-first container-fuid" style="width: 100%;">
 		@include('visitors.menu')
-	</div>	
-	
+	</div>
+
 	<!--MOVIL-->
 	<div class="container-first container" style="max-width: 700px;margin-bottom: 130px;">
 
@@ -16,7 +16,7 @@
 			<img src="{{url()}}/img/header/header.jpg" style="max-width: 200px;">
 		</div>
 		<br>
-
+		<h1>git</h1>
 		<!--FORMULARIO-->
 		<div class="row">
 		  <div style="max-width:175px; margin-left: 15px;">
@@ -30,7 +30,7 @@
 
 		<div class="alert alert-info" role="alert"> Los campos obligatorios están marcados con <strong>(*)</strong> </div>
 		<div class="alert alert-warning" role="alert">Nota: para que los socios te conozcan mejor te recomendamos completar el formulario.</div>
-		<br>		
+		<br>
 
 		<label for="basic-url">(*)Nombre de usuario:</label>
 		<div class="input-group">
@@ -90,16 +90,16 @@
 		<label for="basic-url">Giros de negocio:</label>
 		<div class="row">
 			<div class="col-xs-12 col-sm-4 col-md-4 col-md-lg-4">
-				<div class="btn-group"> 
-					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Seleccionar <span class="caret"></span></button> 
-					<ul class="dropdown-menu">  
-						<li><a href="#">Energético</a></li> 
-						<li><a href="#">Educación</a></li> 
-						<li><a href="#">Reclutamiento laboral</a></li> 
-						<li><a href="#">Tecnología</a></li> 
-						<li><a href="#">Optimización de procesos</a></li> 
-						<li><a href="#">Publicidad</a></li> 
-					</ul> 
+				<div class="btn-group">
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Seleccionar <span class="caret"></span></button>
+					<ul class="dropdown-menu">
+						<li><a href="#">Energético</a></li>
+						<li><a href="#">Educación</a></li>
+						<li><a href="#">Reclutamiento laboral</a></li>
+						<li><a href="#">Tecnología</a></li>
+						<li><a href="#">Optimización de procesos</a></li>
+						<li><a href="#">Publicidad</a></li>
+					</ul>
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-8 col-md-8 col-md-lg-8">
@@ -222,6 +222,6 @@
 { ! ! Html::script('assets/bootstrap-3.3.7-dist/js/bootstrap.min.js') !!}
 { ! ! Html::script('js/admin/dashboard/configurator/ConfiguratorShow.js') !!}*/
 @endpush
-	
+
 </body>
 </html>
