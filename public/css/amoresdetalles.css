@@ -1,0 +1,141 @@
+body{
+  background: #f7f6f6;
+  /*padding-bottom: 70px;*/
+  /*background: #dedddd;*/
+  /*background: #ffeaea;*/
+}
+.container-first.container{
+  background: #ffffff;
+  moz-box-shadow: 0px 0px 7px #000000;
+  -webkit-box-shadow: 0px 0px 7px #000000;
+  box-shadow: 0px 0px 7px #000000;
+}
+.redondeo
+{
+  webkit-border-radius: 0px 0px 100px 100px;
+  -moz-border-radius: 0px 0px 100px 100px;
+  border-radius: 0px 0px 100px 100px;
+  moz-box-shadow: 0px 0px 7px #000000;
+  -webkit-box-shadow: 0px 0px 7px #000000;
+  box-shadow: 0px 0px 7px #000000;
+}
+
+.redondeo-5px
+{
+  webkit-border-radius: 0px 0px 5px 5px;
+  -moz-border-radius: 0px 0px 5px 5px;
+  border-radius: 0px 0px 5px 5px;
+  moz-box-shadow: 7px 7px 7px #8e8e8e;
+  -webkit-box-shadow: 7px 7px 7px #8e8e8e;
+  box-shadow: 7px 7px 7px #8e8e8e;
+}
+
+.redondeo-img
+{
+  webkit-border-radius: 5px 5px 5px 5px;
+  -moz-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.red{ background: red; }
+
+.blue{ background:#3194b9; }
+
+.yellow{ background: #fbfbb6; }
+
+.white{ background: #ffffff; }
+
+li.text-white a{ color: #ffffff !important; }
+
+.black{ background: #000000; }
+
+.cortinilla > div
+{
+  position: relative;
+  z-index: 1;
+  float: left;
+  height: 150px;
+}
+
+.container.first{
+  padding: 15px 15px 15px 15px;
+  background: #ffffff;
+}
+
+.row-first{
+  height: 50%;
+}
+.section-title{
+  padding-bottom: 8px;
+}
+.margin-top-10{
+  margin-top: 10px;
+}
+.custom-menu{
+      width: 70%;
+}
+
+.popup-container.container{
+    width: 45%;
+    max-width: 758px;
+    background: #ffffff;
+    box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.3);
+    padding-bottom: 20px;
+    /**/
+    position: absolute;
+    z-index: 1;
+    left: 30%;
+}
+.display-block{
+  display: block;
+}
+.display-none{
+  display: none;
+}
+ul > li{
+  text-decoration: none;
+  list-style:none
+}
+ul > li a{
+  color: #000000;
+}
+a{
+  pointer-events: none;
+  cursor: default;
+}
+
+/*mision y visón*/
+.container-mision.container{
+  text-align: center;
+}
+.cursiva{
+      font-family: cursive;
+}
+.text-size-25{
+      font-size: 25px;
+}
+
+.margin-top-50{
+      margin-top: 50px;
+}
+
+/*Eventos especiales*/
+ul.padding-bottom-2 > li {
+      padding-bottom: 2px;
+      margin-left: 15px;
+      cursor: pointer;
+}
+.margin-left-none{
+ margin-left: 0px !important; 
+}
+
+/**FOOTER**/
+#lox-master-footer .lox-master-secondContainer .lox-master-icon-socialmedia-container > div > a, #lox-master-footer .lox-master-secondContainer .lox-master-icon-socialmedia-container > div > div {
+    display: block;
+    float: left;
+    margin: 10px 10px;
+}
+
+#lox-master-footer .lox-master-icon-socialmedia-facebook {
+    background-position: 0 -180px;
+}
