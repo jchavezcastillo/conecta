@@ -31,13 +31,12 @@
 	<meta name="_token" content="{{ csrf_token() }}"/>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link href="{{url()}}/css/amoresdetalles.css" rel="stylesheet">
+	<link href="{{url()}}/css/conecta.css" rel="stylesheet">
+	@yield('cssParticular')
 </head>
 <body>
 	<!-- Menú -->
-	<div class="container-first container-fuid" style="width: 100%;">
-      @include('visitors.menu')
-   </div>
+   @include('visitors.menu')
 
 	<!-- Contenido pricipal -->
 	@yield('content')
@@ -50,7 +49,8 @@
    <!-- Include all compiled plugins (below), or include individual files as needed -->
    <script src="{{url()}}/assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
    <!--js page-->
-   <script src="{{url()}}/js/amoresdetalles.js"></script>
+   <script src="{{url()}}/js/conecta.js"></script>
    @yield('jsParticular')
+
 </body>
 </html>

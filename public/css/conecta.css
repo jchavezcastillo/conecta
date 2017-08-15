@@ -100,7 +100,7 @@ ul > li a{
   color: #000000;
 }
 a{
-  pointer-events: none;
+  /* pointer-events: none; */
   cursor: default;
 }
 
