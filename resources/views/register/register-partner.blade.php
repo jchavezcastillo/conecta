@@ -5,6 +5,12 @@
 
 	@include('visitors.master-visitors')
 	
+	{{ $user }}
+	<!-- @foreach($user as $uses)
+		{{$uses->name}} <br>
+	@endforeach -->
+	
+
 	<div class="container-first container-fuid" style="width: 100%;">
 		<!--MENU EXPERIMENTAL-->
 		<a name="menu-ancla"></a>

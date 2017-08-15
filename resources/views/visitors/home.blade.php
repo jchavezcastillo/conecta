@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es" class="ve-animate">
 <head></head>
-<body>
+<body> -->
 
 	@include('visitors.master-visitors')
 
@@ -163,10 +163,11 @@
     //var waiting_spiner = '<img width="40" src="{ {url()}}/resources/auction_spinner.gif"> Esperando respuesta del modelo de optimización.';
     //var save_url_product = "{! ! route('admin.save.products') !!}";
 </script>
+
 /*{ ! ! Html::script('assets/jquery-1.12.4/jquery.min.js') !!}
 { ! ! Html::script('assets/bootstrap-3.3.7-dist/js/bootstrap.min.js') !!}
 { ! ! Html::script('js/admin/dashboard/configurator/ConfiguratorShow.js') !!}*/
 @endpush
 	
-</body>
-</html>
+<!-- </body>
+</html> -->

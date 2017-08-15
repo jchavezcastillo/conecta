@@ -10,6 +10,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Carbon\Carbon as DateFormatter;
+use App\Model\User;
 
 class RegisterViewsController extends BaseController
 {
@@ -19,13 +20,18 @@ class RegisterViewsController extends BaseController
     {
         //$this->middleware('role:partner',['except' => ['getPartners']]);
         //$this->middleware('role:partner'/*,['except' => ['getMyProfile']]*/);
+        $this->middleware('role:PARTNER', ['only' => ['getRegisterPartners']]);
     }
 
     /*Registro de invitados, formulario para invitar socios a eventos (conecta coparmex xalapa)*/
     public function getRegisterPartners()
     {
+        /*$user = User::all();*/
+        $user = User::where('id','=',1)->first();//para obtener un registro
+        /*User::where('id','!=',1)->get();//para obtener varios registros registro*/
+
         $datos = array();
-        return view('register.register-partner', compact('datos'));
+        return view('register.register-partner', compact('datos', 'user'));
     }
 
     /*Registro de invitados, formulario para invitar al públio general a eventos*/

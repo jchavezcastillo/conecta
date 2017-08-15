@@ -18,11 +18,16 @@ class RegisterCRUDController extends BaseController
 
     public function __construct()
     {
-        //$this->middleware('role:partner',['except' => ['getPartners']]);
+        //$this->middleware('role:PARTNER',['except' => ['getPartners']]);
         //$this->middleware('role:partner'/*,['except' => ['getMyProfile']]*/);
+        /*$this->middleware('role:PARTNER', ['only' => ['']]);*/
     }
 
-    /*Registro de invitados, formulario para invitar socios a eventos (conecta coparmex xalapa)*/
+    /*Registro de invitados, formulario para invitar socios a eventos (conecta coparmex xalapa ) 
+    @URL register/socio
+    @name register.partner
+    @param input | name | example: juan mendez
+    @return json*/
     public function CreateRegisterPartners()
     {
         $user = Auth::user();
