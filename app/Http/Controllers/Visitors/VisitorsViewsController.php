@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Visitors;
 
+use App\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
@@ -10,6 +11,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Carbon\Carbon as DateFormatter;
+use Illuminate\Support\Facades\Log;
 
 class VisitorsViewsController extends BaseController
 {
@@ -30,9 +32,10 @@ class VisitorsViewsController extends BaseController
 
     /*Mi perfil*/
     public function getMyProfile()
-    {
-        $datos = array();
-        return view('visitors.myProfile', compact('datos'));
+    {   
+        Log::debug("Desde el perfil");
+        $categories = Category::all();
+        return view('visitors.myProfile', compact('categories'));
     }
 
     /*Mostrar socios marcados como favoritos*/

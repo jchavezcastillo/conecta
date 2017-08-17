@@ -44,6 +44,7 @@ Route::group(['prefix' => 'site'], function () {
         //http://localhost/conecta/public/site/register/register/socio
         // ACCIONES
         Route::post( 'register/socio', [ 'as' => 'register.partner', 'uses' => 'Register\RegisterCRUDController@CreateRegisterPartners' ] );//Registrar a socio
+        Route::post( 'category/create', [ 'as' => 'category.create', 'uses' => 'Register\RegisterCRUDController@CreateRegisterCategory' ] );
         //Route::post('new/user/moral/save', 'RegisterController@saveMoral')->name('register.moral.save'); //servicio para guardar un usuario moral nuevo
         //Route::post('new/user/fisica/save', 'RegisterController@saveFisica')->name('register.fisica.save'); //servicio para guardar un usuario moral nuevo
         //Route::post('new/user/consorcio/save', 'RegisterController@saveConsorcio')->name('register.consorcio.save'); //servicio para guardar un consorcio

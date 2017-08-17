@@ -52,7 +52,6 @@ function save_productImg()
 }
 
 jQuery(function () {
-  console.log("Al cargar1");
     var createInterval = undefined;
     var interval_duration = (60 * 1000) * 5; // cada 5 minutos
 
@@ -182,7 +181,6 @@ jQuery(function () {
         // Silverlight settings
         silverlight_xap_url: silverlight_xap_url
     });
-    console.log("Al cargarN");
 });
 var current_error_log = null;
 var total_files_size = 0;

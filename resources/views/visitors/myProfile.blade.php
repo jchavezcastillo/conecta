@@ -4,6 +4,7 @@
    <link rel="stylesheet" type="text/css" href="{{url()}}/assets/jquery-ui/jquery-ui.css">
    <link rel="stylesheet" type="text/css" href="{{url()}}/assets/jquery-ui/jquery-ui.theme.css">
    <link rel="stylesheet" type="text/css" href="{{url()}}/assets/plupload/js/jquery.ui.plupload/css/jquery.ui.plupload.css">
+   <link rel="stylesheet" href="{{url()}}/css/bootstrap-select.min.css">
 @stop
 
 @section('content')
@@ -25,71 +26,68 @@
       <div class="alert alert-info" role="alert"> Los campos obligatorios están marcados con <strong>(*)</strong> </div>
       <div class="alert alert-warning" role="alert">Nota: para que los socios te conozcan mejor te recomendamos completar el formulario.</div><br>
       
-      <label for="basic-url">(*)Nombre de usuario:</label>
+      <label for="user-name-partner">(*)Nombre de usuario:</label>
       <div class="input-group">
          <span class="input-group-addon" id="basic-addon3">
             <span class="glyphicon glyphicon-user" id="basic-addon1"></span>
          </span>
-         <input type="text" class="form-control" id="basic-url" placeholder="Escribe" aria-describedby="basic-addon3">
+         <input type="text" class="form-control" id="user-name-partner" placeholder="Escribe" aria-describedby="basic-addon3">
       </div><br>
       
-      <label for="basic-url">(*)Password:</label>
+      <label for="password-partner">(*)Password:</label>
       <div class="input-group">
          <span class="input-group-addon" id="basic-addon3">
             <span class="glyphicon glyphicon-lock" id="basic-addon1"></span>
          </span>
-         <input type="text" class="form-control" id="basic-url" placeholder="*********" aria-describedby="basic-addon3">
+         <input type="text" class="form-control" id="password-partner" placeholder="*********" aria-describedby="basic-addon3">
       </div><br>
 
-      <label for="basic-url">(*)Email:</label>
+      <label for="email-partner">(*)Email:</label>
       <div class="input-group">
          <span class="input-group-addon" id="basic-addon3">
             <span class="glyphicon glyphicon-envelope" id="basic-addon1"></span>
          </span>
-         <input type="text" class="form-control" id="basic-url" placeholder="Email" aria-describedby="basic-addon3">
+         <input type="text" class="form-control" id="email-partner" placeholder="Email" aria-describedby="basic-addon3">
       </div><br>
 
-      <label for="basic-url">Nombre completo:</label>
+      <label for="name-partner">Nombre completo:</label>
       <div class="input-group">
          <span class="input-group-addon" id="basic-addon1">
             <span class="glyphicon glyphicon-user" id="basic-addon1"></span>
          </span>
-         <input type="text" class="form-control" placeholder="Ejemplo: Juan Casas Cerdan" aria-describedby="basic-addon1">
+         <input type="text" class="form-control" id="name-partner" placeholder="Ejemplo: Juan Casas Cerdan" aria-describedby="basic-addon1">
       </div><br>
 
-      <label for="basic-url">Empresa:</label>
+      <label for="business">Empresa:</label>
       <div class="input-group">
          <span class="input-group-addon" id="basic-addon1">
             <span class="glyphicon glyphicon-briefcase" id="basic-addon1"></span>
          </span>
-         <input type="text" class="form-control" placeholder="Ejemplo: SecurityOnline" aria-describedby="basic-addon1">
+         <input type="text" class="form-control" id="business" placeholder="Ejemplo: SecurityOnline" aria-describedby="basic-addon1">
       </div><br>
 
-      <label for="basic-url">¿Qué te gusta hacer?:</label>
+      <label for="you-like">¿Qué te gusta hacer?:</label>
       <div class="input-group">
          <span class="input-group-addon" id="basic-addon1">
             <span class="glyphicon glyphicon-info-sign" id="basic-addon1"></span>
          </span>
-         <textarea type="text" class="form-control" placeholder="Ejemplo: SecurityOnline" aria-describedby="basic-addon1"></textarea>
+         <textarea type="text" class="form-control" id="you-like" placeholder="Ejemplo: SecurityOnline" aria-describedby="basic-addon1"></textarea>
       </div><br>
 
       <!--Giros de negocio-->
       <label for="basic-url">Giros de negocio:</label>
       <div class="row">
          <div class="col-xs-12 col-sm-4 col-md-4">
-            <div class="btn-group">
-               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Seleccionar <span class="caret"></span></button>
-               <ul class="dropdown-menu">
-                  <li><a href="#">Energético</a></li>
-                  <li><a href="#">Educación</a></li>
-                  <li><a href="#">Reclutamiento laboral</a></li>
-                  <li><a href="#">Tecnología</a></li>
-                  <li><a href="#">Optimización de procesos</a></li>
-                  <li><a href="#">Publicidad</a></li>
-               </ul>
+            <div class="form-group">
+               <select id="lunch" class="selectpicker" data-live-search="true" title="Please select a lunch ...">
+                  @foreach($categories as $category)
+                    <option>{{$category->name}}</option>
+                  @endforeach
+               </select>
             </div>
          </div>
-         <div class="col-xs-12 col-sm-8 col-md-8 col-md-lg-8">
+   
+         <div class="col-xs-12 col-sm-8 col-md-8">
             <div class="panel panel-default">
                <div class="panel-body">
                   <span class="label label-default">
@@ -106,13 +104,12 @@
                   </span>
                </div>
             </div>
-
             <label for="basic-url">Otros:</label>
             <div class="input-group">
                <span class="input-group-btn">
-                 <button class="btn btn-default" type="button">Agregar</button>
+                 <button class="btn btn-default" type="button" id="addCategory">Agregar</button>
                </span>
-               <input type="text" class="form-control" placeholder="Nuevo...">
+               <input id="newCategory" type="text" class="form-control" placeholder="Nuevo..." required="true">              
             </div><!-- /input-group -->
          </div><!-- /.col-lg-6 -->
       </div><br>
@@ -182,26 +179,31 @@
          <input type="text" class="form-control" placeholder="LADA + número" aria-describedby="basic-addon1">
       </div><br>
 
-      <p><a href="#" class="btn btn-primary" role="button">Guardar</a></p>
+      <p><a id="addParther" class="btn btn-primary" role="button">Guardar</a></p>
       <!--Fin, Formulario-->
    </div>
 
    <!--Modal para subir imagen-->
-   <div id="modal-upload-img" class="modal fade " tabindex="-1">
-      <div class="modal-dialog">
-         <div class="modal-content">
-            <div class="modal-header">
-               <button class="close" type="button" data-dismiss="modal">
-                  ×
-               </button>
-               <h4 id="myModalLabel" class="modal-title">Subes la imagen de producto</h4>
-               <div id="uploader">
-                    <p>Your browser doesn't have Flash, Silverlight or HTML5 support.</p>
-                </div>
+   <div class="row">
+      <div class="col-xs-12">
+         <div id="modal-upload-img" class="modal fade " tabindex="-1">
+            <div class="modal-dialog">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <button class="close" type="button" data-dismiss="modal">
+                        ×
+                     </button>
+                     <h4 id="myModalLabel" class="modal-title">Subes la imagen de producto</h4>
+                     <div id="uploader">
+                          <p>Your browser doesn't have Flash, Silverlight or HTML5 support.</p>
+                      </div>
+                  </div>
+               </div>
             </div>
          </div>
       </div>
    </div>
+   
 @stop
 
 @section('jsParticular')
@@ -211,21 +213,64 @@
    <script src="{{url()}}/assets/plupload/js/i18n/es.js"></script>
    <script src="{{url()}}/js/upload.js"></script>
    <script src="{{url()}}/js/openmodal.js"></script>
+   <script src="{{url()}}/js/bootstrap-select.min.js"></script>
    <script type="text/javascript">
       var upload_url = "{{ route('register.partner') }}";
+      var create_category = "{{ route('category.create') }}";
       var flash_swf_url = "{{ url('/assets/plupload/js/Moxie.swf') }}";
       var silverlight_xap_url = "{{ url('/assets/plupload/Moxie.xap') }}";
    </script>
-@stop
+   <script type="text/javascript">
+      $(document).on('click','#addParther',function(){
+         var _data ={
+               nombre: $('#nombre').val(),
+               cargo: $('#cargo').val(),
+               email: $('#email').val(),
+               mision: $('#mision').val(),
+               valores: $('#valores').val()
+            }
+         $.ajax({
+            url: upload_url,
+            type: "post",
+            data: _data,
+            dataType: 'json',
+            success: function (response) {
+               if(response.success){
+                  alert("Se guardó con éxito");
+                  $('#modal-mision-vision').modal('hide');
+               }else{
+                  alert("No se pudo guardar");
+               }
+            },
+            error: function (response) {
+            
+            }
+         });
+      });
 
-@push('scripts')
-<!--<script src='{ {url()}}/js/lib/numeric/jquery.numeric.js'></script>
-<script src='{ {url()}}/js/lib/decimal/decimal.min.js'></script>-->
-<script type="text/javascript">
-    //var waiting_spiner = '<img width="40" src="{ {url()}}/resources/auction_spinner.gif"> Esperando respuesta del modelo de optimización.';
-    //var save_url_product = "{! ! route('admin.save.products') !!}";
-</script>
-/*{ ! ! Html::script('assets/jquery-1.12.4/jquery.min.js') !!}
-{ ! ! Html::script('assets/bootstrap-3.3.7-dist/js/bootstrap.min.js') !!}
-{ ! ! Html::script('js/admin/dashboard/configurator/ConfiguratorShow.js') !!}*/
-@endpush
+      $(document).on('click','#addCategory',function(){
+         if($('#newCategory').val()==="")
+            return alert("Campo vacío.");
+         var _data ={
+            name: $('#newCategory').val()
+         }
+
+         $.ajax({
+            url: create_category,
+            type: "post",
+            data: _data,
+            dataType: 'json',
+            success: function (response) {
+               if(response.success){
+                  alert("Se guardó con éxito");
+               }else{
+                  alert("No se pudo guardar");
+               }
+            },
+            error: function (response) {
+            
+            }
+         });
+      });
+   </script>
+@stop

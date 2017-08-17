@@ -11,6 +11,8 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Carbon\Carbon as DateFormatter;
 use Illuminate\Support\Facades\Log;
+use App\Category;
+use Illuminate\Support\Facades\Request;
 
 class RegisterCRUDController extends BaseController
 {
@@ -30,20 +32,50 @@ class RegisterCRUDController extends BaseController
     @return json*/
     public function CreateRegisterPartners()
     {
-        $user = Auth::user();
+        /*$user = Auth::user();
         $data = Input::all();
 
         Log::info("data::");
         Log::info($data);
 
         Log::info("user::");
-        Log::info($user);
+        Log::info($user);*/
 
         $datos = array();
         return response()->json(array(
             "success" => false
         ));
     }
+    public function CreateRegisterCategory(Request $request){
+        
+      $data=input::all();
+
+      Log::info("data::");
+      Log::info($data);
+      Log::info("request");
+      DB::beginTransaction();
+      try{
+         $category=new category();
+         $name= $category->name=$data['name'];
+         $category->save();
+
+         DB::commit();
+         Log::info("registro exitoso");
+      }catch(\Exception $e){
+         DB::rollback();
+         Log::info("se ha hecho roll back debido a la siguiente excepcion:".$e);
+         return response()->json(array(
+            "success" => false,
+            "title" => "Aviso",
+            "msg" => "Los cambios no se aplicaron",
+            "datos" => $data
+         ));
+      }
+      return response()->json(array(
+         "success" => true
+      ));
+
+    }//Fin funcion
 
     /*Registro de invitados, formulario para invitar al públio general a eventos*/
     public function CreateRegisterGuest()

@@ -38,7 +38,6 @@
 
 	/*Se agrega la imagen del producto*/
 	$(document).on('click','.edit-img', function() {
-		console.log("Se ejecuta");
 		id_prod = $(this).attr('id');
 		$('#modal-upload-img').modal({backdrop: 'static', keyboard: true});
 	});
